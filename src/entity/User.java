@@ -1,7 +1,13 @@
+package entity;
+
+import enums.Role;
+
 public class User {
     String name;
     Credentials credentials;
     Role role;
+    
+    
     
     public String getName() {
         return name;

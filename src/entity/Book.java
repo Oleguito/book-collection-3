@@ -1,7 +1,13 @@
+package entity;
+
+import settings.Settings;
+
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Book {
+    
+    private static Settings settings;
     
     private String title;
     private String author;

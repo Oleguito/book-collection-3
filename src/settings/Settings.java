@@ -1,3 +1,5 @@
+package settings;
+
 public class Settings {
     public static int CURRENT_YEAR = 2023;
     public static String usersFile = "users.csv";

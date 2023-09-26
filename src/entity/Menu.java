@@ -1,3 +1,9 @@
+package entity;
+
+import enums.ActionPermission;
+import enums.MenuTitle;
+import server.Server;
+
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -30,12 +36,16 @@ public class Menu {
         MenuItem mainMenu = new MenuItem(MenuTitle.MAIN, () -> {});
         MenuItem searchMenu = new MenuItem(MenuTitle.SEARCH, () -> {});
         MenuItem manageMenu = new MenuItem(MenuTitle.MANAGE, () -> {});
-        MenuItem listMenu = new MenuItem(MenuTitle.LIST, () -> {Server.listBooks(ActionPermission.LIST);});
+        MenuItem listMenu = new MenuItem(MenuTitle.LIST, () -> {
+            Server.listBooks(ActionPermission.LIST);});
         MenuItem exitMenu =   new MenuItem(MenuTitle.EXIT, () -> {System.exit(0);});
         
-        MenuItem filterByTitleMenu =  new MenuItem(MenuTitle.FILTER_BY_TITLE, () -> {Server.filterByTitle(ActionPermission.FILTER_BY_TITLE);});
-        MenuItem filterByAuthorMenu = new MenuItem(MenuTitle.FILTER_BY_AUTHOR, () -> {Server.filterByAuthor(ActionPermission.FILTER_BY_AUTHOR);});
-        MenuItem filterByAllMenu =    new MenuItem(MenuTitle.FILTER_BY_ALL, () -> {Server.filterByAll(ActionPermission.FILTER_BY_ALL);});
+        MenuItem filterByTitleMenu =  new MenuItem(MenuTitle.FILTER_BY_TITLE, () -> {
+            Server.filterByTitle(ActionPermission.FILTER_BY_TITLE);});
+        MenuItem filterByAuthorMenu = new MenuItem(MenuTitle.FILTER_BY_AUTHOR, () -> {
+            Server.filterByAuthor(ActionPermission.FILTER_BY_AUTHOR);});
+        MenuItem filterByAllMenu =    new MenuItem(MenuTitle.FILTER_BY_ALL, () -> {
+            Server.filterByAll(ActionPermission.FILTER_BY_ALL);});
         
         MenuItem addBookMenu  = new MenuItem(MenuTitle.ADD, () -> {});
         MenuItem editBookMenu  = new MenuItem(MenuTitle.EDIT, () -> {});
@@ -44,11 +54,16 @@ public class Menu {
         MenuItem backMenu = new MenuItem(MenuTitle.BACK, () -> {});
         MenuItem homeMenu = new MenuItem(MenuTitle.HOME, () -> {});
         
-        MenuItem addBookActionMenu  = new MenuItem(MenuTitle.ADD, () -> {Server.addBook(ActionPermission.ADD);});
-        MenuItem editBookActionMenu  = new MenuItem(MenuTitle.EDIT, () -> {Server.editBook(ActionPermission.EDIT);});
-        MenuItem removeBookActionMenu  = new MenuItem(MenuTitle.REMOVE, () -> {Server.removeBook(ActionPermission.REMOVE);});
-        MenuItem selectBookActionMenu = new MenuItem(MenuTitle.SELECT, () -> {Server.selectBook(ActionPermission.SELECT);});
-        MenuItem printSelectedBookActionMenu = new MenuItem(MenuTitle.PRINT_SELECTED, () -> {Server.printSelectedBook();});
+        MenuItem addBookActionMenu  = new MenuItem(MenuTitle.ADD, () -> {
+            Server.addBook(ActionPermission.ADD);});
+        MenuItem editBookActionMenu  = new MenuItem(MenuTitle.EDIT, () -> {
+            Server.editBook(ActionPermission.EDIT);});
+        MenuItem removeBookActionMenu  = new MenuItem(MenuTitle.REMOVE, () -> {
+            Server.removeBook(ActionPermission.REMOVE);});
+        MenuItem selectBookActionMenu = new MenuItem(MenuTitle.SELECT, () -> {
+            Server.selectBook(ActionPermission.SELECT);});
+        MenuItem printSelectedBookActionMenu = new MenuItem(MenuTitle.PRINT_SELECTED, () -> {
+            Server.printSelectedBook();});
         
         /* ГЛАВНОЕ МЕНЮ */
         mainMenu.addSubMenu(searchMenu);

@@ -1,5 +1,13 @@
+package db;
+
+import settings.Settings;
+import entity.Book;
+import entity.Credentials;
+import entity.User;
+import enums.Role;
 import exceptions.InvalidFileLineNumArgumentsException;
 import exceptions.InvalidFileLineUserRoleException;
+import settings.Settings;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -105,7 +113,7 @@ public class Database {
         return new Book(split);
     }
     
-    static void writeBooksToFile(List<Book> books, String filename) {
+    public static void writeBooksToFile(List<Book> books, String filename) {
         String line;
         FileWriter fw;
         BufferedWriter bw;

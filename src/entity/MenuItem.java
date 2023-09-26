@@ -1,3 +1,7 @@
+package entity;
+
+import enums.MenuTitle;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,15 +10,15 @@ public class MenuItem {
     private MenuAction action;
     private List <MenuItem> submenus;
     
-    List<MenuItem> getSubmenus() {
+    public List<MenuItem> getSubmenus() {
         return submenus;
     }
     
-    int getNumSubmenus() {
+    public int getNumSubmenus() {
         return submenus.size();
     }
     
-    MenuTitle getTitle() {
+    public MenuTitle getTitle() {
         return title;
     }
     
@@ -24,7 +28,7 @@ public class MenuItem {
         this.action = action;
     }
     
-    void listSubmenus () {
+    public void listSubmenus () {
         System.out.println();
         for (int i = 0; i < submenus.size(); i++) {
             System.out.printf("%d - %s\n", i + 1, submenus.get(i).getTitle().getValue());

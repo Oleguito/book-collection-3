@@ -1,5 +1,14 @@
+package server;
+
+import db.Database;
+import entity.Book;
+import entity.Menu;
+import entity.User;
+import enums.ActionPermission;
+import enums.Role;
 import exceptions.InvalidCredentialsException;
 import exceptions.InattentiveProgrammerException;
+import settings.Settings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +23,13 @@ public class Server {
     private static Book selectedBook = null;
     
     public static void run() {
-        currentUser = Database.users.get(1); // authenticate();
+        currentUser = authenticate(); // Database.users.get(1); // authenticate();
         if(currentUser == null) {
             throw new InvalidCredentialsException("Пользователь не найден. Завершение работы.");
         }
         System.out.printf("Вы вошли под логином: %s. Ваша роль: %s\n",
-                currentUser.credentials.getLogin(),
-                currentUser.getRole());
+                currentUser.getCredentials().getLogin(),
+                String.valueOf(currentUser.getRole()));
         Menu.run();
     };
     
@@ -33,8 +42,8 @@ public class Server {
         User resultUser = null;
         for (User user : Database.users) {
             if(
-                    user.credentials.getLogin().equals(login) &&
-                    user.credentials.getPassword().equals(password)
+                    user.getCredentials().getLogin().equals(login) &&
+                    user.getCredentials().getPassword().equals(password)
             ) {
                 resultUser = user;
                 break;
@@ -97,7 +106,7 @@ public class Server {
     
     private static boolean userCanDo(ActionPermission actionPermission) {
         for (Role role : actionPermission.getValues()) {
-            if (currentUser.getRole() == role) {
+            if (currentUser.getRole().equals(role)) {
                 return true;
             }
         }
@@ -108,7 +117,7 @@ public class Server {
         if(userCanDo(actionPermission)) {
             System.out.println("Введите подстроку, которая должна содержаться в наименовании книги");
             System.out.println("Поиск нечувствителен к регистру");
-            String entry = "дик"; // scanner.nextLine().trim();
+            String entry = scanner.nextLine().trim();
             System.out.printf("Вы ввели: %s\n", entry);
             List <Book> filteredList = new ArrayList<>();
             for (Book book : Database.books) {
@@ -127,7 +136,7 @@ public class Server {
         if(userCanDo(actionPermission)) {
             System.out.println("Введите подстроку, которая должна содержаться в списке авторов книги");
             System.out.println("Поиск нечувствителен к регистру");
-            String entry = "Эрин"; // scanner.nextLine().trim();
+            String entry = scanner.nextLine().trim();
             System.out.printf("Вы ввели: %s\n", entry);
             List <Book> filteredList = new ArrayList<>();
             for (Book book : Database.books) {
@@ -146,7 +155,7 @@ public class Server {
         if(userCanDo(actionPermission)) {
             System.out.println("Введите подстроку, которая должна содержаться в любой строке в записи книги");
             System.out.println("`Поиск нечувствителен к регистру");
-            String entry = "фантастика"; // scanner.nextLine().trim();
+            String entry = scanner.nextLine().trim();
             System.out.printf("Вы ввели: %s\n", entry);
             List <Book> filteredList = new ArrayList<>();
             for (Book book : Database.books) {
