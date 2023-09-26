@@ -1,4 +1,4 @@
-package server;
+package service;
 
 import db.Database;
 import entity.Book;

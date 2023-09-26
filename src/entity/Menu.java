@@ -2,7 +2,7 @@ package entity;
 
 import enums.ActionPermission;
 import enums.MenuTitle;
-import server.Server;
+import service.Server;
 
 import java.util.Scanner;
 import java.util.Stack;

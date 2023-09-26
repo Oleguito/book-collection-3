@@ -1,4 +1,4 @@
-import server.Server;
+import service.Server;
 
 public class Main {
     
