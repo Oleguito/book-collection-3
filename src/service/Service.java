@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Server {
+public class Service {
     
     public static User currentUser = null;
     /* При выполнении любого поиска будет заполняться */
@@ -232,74 +232,34 @@ public class Server {
                     if(choice < 1 || choice > high) choice = Menu.getChoice(low, high);
                     switch (choice) {
                         case 1:
-                            if(selectedBook.editTitle()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editTitle());
                             break;
                         case 2:
-                            if(selectedBook.editAuthor()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editAuthor());
                             break;
                         case 3:
-                            if(selectedBook.editPublisher()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editPublisher());
                             break;
                         case 4:
-                            if(selectedBook.editReleaseYear()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editReleaseYear());
                             break;
                         case 5:
-                            if(selectedBook.editGenre()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editGenre());
                             break;
                         case 6:
-                            if(selectedBook.editIsbn()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editIsbn());
                             break;
                         case 7:
-                            if(selectedBook.editTags()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editTags());
                             break;
                         case 8:
-                            if(selectedBook.editLocation()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editLocation());
                             break;
                         case 9:
-                            if(selectedBook.editPath()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editPath());
                             break;
                         case 10:
-                            if(selectedBook.editArticle()) {
-                                System.out.println("Операция выполнена");
-                            } else {
-                                System.out.println("Операция отменена");
-                            }
+                            printResultOfEditing(selectedBook.editArticle());
                             break;
                         default:
                             throw new InattentiveProgrammerException("Если вы видите эту надпись, значит эту программу написал невнимательный программист");
@@ -332,6 +292,14 @@ public class Server {
             System.out.println("Изменения сохранены");
         } else {
             System.out.println("Error 401 - Unauthorized");
+        }
+    }
+    
+    private static void printResultOfEditing(boolean result) {
+        if(result) {
+            System.out.println("Операция выполнена");
+        } else {
+            System.out.println("Операция отменена");
         }
     }
 }

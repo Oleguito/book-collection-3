@@ -2,7 +2,7 @@ package entity;
 
 import enums.ActionPermission;
 import enums.MenuTitle;
-import service.Server;
+import service.Service;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -37,15 +37,15 @@ public class Menu {
         MenuItem searchMenu = new MenuItem(MenuTitle.SEARCH, () -> {});
         MenuItem manageMenu = new MenuItem(MenuTitle.MANAGE, () -> {});
         MenuItem listMenu = new MenuItem(MenuTitle.LIST, () -> {
-            Server.listBooks(ActionPermission.LIST);});
+            Service.listBooks(ActionPermission.LIST);});
         MenuItem exitMenu =   new MenuItem(MenuTitle.EXIT, () -> {System.exit(0);});
         
         MenuItem filterByTitleMenu =  new MenuItem(MenuTitle.FILTER_BY_TITLE, () -> {
-            Server.filterByTitle(ActionPermission.FILTER_BY_TITLE);});
+            Service.filterByTitle(ActionPermission.FILTER_BY_TITLE);});
         MenuItem filterByAuthorMenu = new MenuItem(MenuTitle.FILTER_BY_AUTHOR, () -> {
-            Server.filterByAuthor(ActionPermission.FILTER_BY_AUTHOR);});
+            Service.filterByAuthor(ActionPermission.FILTER_BY_AUTHOR);});
         MenuItem filterByAllMenu =    new MenuItem(MenuTitle.FILTER_BY_ALL, () -> {
-            Server.filterByAll(ActionPermission.FILTER_BY_ALL);});
+            Service.filterByAll(ActionPermission.FILTER_BY_ALL);});
         
         MenuItem addBookMenu  = new MenuItem(MenuTitle.ADD, () -> {});
         MenuItem editBookMenu  = new MenuItem(MenuTitle.EDIT, () -> {});
@@ -55,15 +55,15 @@ public class Menu {
         MenuItem homeMenu = new MenuItem(MenuTitle.HOME, () -> {});
         
         MenuItem addBookActionMenu  = new MenuItem(MenuTitle.ADD, () -> {
-            Server.addBook(ActionPermission.ADD);});
+            Service.addBook(ActionPermission.ADD);});
         MenuItem editBookActionMenu  = new MenuItem(MenuTitle.EDIT, () -> {
-            Server.editBook(ActionPermission.EDIT);});
+            Service.editBook(ActionPermission.EDIT);});
         MenuItem removeBookActionMenu  = new MenuItem(MenuTitle.REMOVE, () -> {
-            Server.removeBook(ActionPermission.REMOVE);});
+            Service.removeBook(ActionPermission.REMOVE);});
         MenuItem selectBookActionMenu = new MenuItem(MenuTitle.SELECT, () -> {
-            Server.selectBook(ActionPermission.SELECT);});
+            Service.selectBook(ActionPermission.SELECT);});
         MenuItem printSelectedBookActionMenu = new MenuItem(MenuTitle.PRINT_SELECTED, () -> {
-            Server.printSelectedBook();});
+            Service.printSelectedBook();});
         
         /* ГЛАВНОЕ МЕНЮ */
         mainMenu.addSubMenu(searchMenu);
